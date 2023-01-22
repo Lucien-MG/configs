@@ -1,5 +1,12 @@
 {
     "workbench.colorTheme": "Default Dark+",
+
     "editor.renderWhitespace": "all",
-    "editor.rulers": [80]
+    "editor.rulers": [80],
+
+    "files.trimTrailingWhitespace": true,
+
+    "workbench.colorCustomizations": {
+        "editorWhitespace.foreground": "#f3ca41"
+    },
 }
