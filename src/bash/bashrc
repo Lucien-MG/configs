@@ -1,0 +1,27 @@
+# Bash configuration file
+# Path: ~/.bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Source bash aliases
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Functions
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# Define the shell prompt
+PS1="[\u@\h \W]\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
